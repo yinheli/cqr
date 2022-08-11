@@ -45,9 +45,10 @@ jobs:
             os: windows-latest
             name: qr-x86_64-pc-windows-msvc.zip
 
-          - target: aarch64-pc-windows-msvc
-            os: windows-latest
-            name: qr-aarch64-pc-windows-msvc.zip
+          # issue: https://github.com/briansmith/ring/issues/1461
+          # - target: aarch64-pc-windows-msvc
+          #   os: windows-latest
+          #   name: qr-aarch64-pc-windows-msvc.zip
 
     runs-on: ${{ matrix.os }}
     continue-on-error: true
