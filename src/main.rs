@@ -36,16 +36,14 @@ fn decode(value: String) -> Result<(), Error> {
     let mut decoder = Quirc::default();
     let codes = decoder.identify(wrap.width() as usize, wrap.height() as usize, &wrap);
 
-    for code in codes {
-        if let Ok(c) = code {
-            match c.decode() {
-                Ok(data) => {
-                    let v = String::from_utf8_lossy(&data.payload);
-                    println!("{}", v);
-                }
-                Err(e) => {
-                    println!("decode failed: {:?}", e);
-                }
+    for code in codes.into_iter().flatten() {
+        match code.decode() {
+            Ok(data) => {
+                let v = String::from_utf8_lossy(&data.payload);
+                println!("{}", v);
+            }
+            Err(e) => {
+                println!("decode failed: {:?}", e);
             }
         }
     }
