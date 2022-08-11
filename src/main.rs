@@ -18,13 +18,12 @@ fn main() {
 }
 
 fn decode(value: String) -> Result<(), Error> {
-    let img;
-    if value.starts_with("http") && value.contains("://") {
+    let img = if value.starts_with("http") && value.contains("://") {
         let response = reqwest::blocking::get(value)?;
-        img = image::load_from_memory(&response.bytes()?)?;
+        image::load_from_memory(&response.bytes()?)?
     } else {
-        img = image::open(value)?;
-    }
+        image::open(value)?
+    };
 
     let img = img.into_luma8();
     let mut wrap = ImageBuffer::from_fn(img.width() + 10, img.height() + 10, |_x, _y| {
