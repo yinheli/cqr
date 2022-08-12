@@ -5,6 +5,7 @@ edition = "2021"
 authors = ["yinheli <me@yinheli.com>"]
 keywords = ["qrcode", "cli"]
 description = "Simple qr cli tool"
+repository = "https://github.com/yinheli/cqr"
 license = "MIT"
 
 
