@@ -75,15 +75,15 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: |
           cd target/${{ matrix.target }}/release
-          strip qr.exe
-          7z a ../../../${{ matrix.name }} qr.exe
+          strip cqr.exe
+          7z a ../../../${{ matrix.name }} cqr.exe
           cd -
       - name: Post Build | Prepare artifacts [-nix]
         if: matrix.os != 'windows-latest'
         run: |
           cd target/${{ matrix.target }}/release
-          strip qr || true
-          tar czvf ../../../${{ matrix.name }} qr
+          strip cqr || true
+          tar czvf ../../../${{ matrix.name }} cqr
           cd -
       - name: Deploy | Upload artifacts
         uses: actions/upload-artifact@v3
