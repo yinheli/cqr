@@ -1,4 +1,6 @@
-# qr
+# cqr
+
+cqr --- cli qr tool
 
 Simple qr cli tool, currently only decode supported.
 
