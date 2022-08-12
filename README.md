@@ -5,7 +5,7 @@ Simple qr cli tool, currently only decode supported.
 # Usage
 
 ```
-$ qr decode  -h
+$ cqr decode  -h
 
 Decode qr
 
