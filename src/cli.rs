@@ -1,10 +1,10 @@
 use clap::{Parser, Subcommand};
 
 #[derive(Parser)]
-#[clap(author, version, about)]
+#[command(author, version, about)]
 pub struct Args {
     /// Subcommands
-    #[clap(subcommand)]
+    #[command(subcommand)]
     pub command: Command,
 }
 
